@@ -36,7 +36,7 @@ public class UserServiceImpl implements IUserService {
         }
 
         user.setPassword(StringUtils.EMPTY);
-        return ServerResponse.createBySucess("登陆成功", user);
+        return ServerResponse.createBySuccess("登陆成功", user);
     }
 
     @Override
@@ -60,7 +60,7 @@ public class UserServiceImpl implements IUserService {
             return ServerResponse.createByErrorMessage("注册失败");
         }
 
-        return ServerResponse.createBySucessMessage("注册成功");
+        return ServerResponse.createBySuccessMessage("注册成功");
 
     }
 
@@ -83,7 +83,7 @@ public class UserServiceImpl implements IUserService {
         } else {
             return ServerResponse.createByErrorMessage("参数错误");
         }
-        return ServerResponse.createBySucessMessage("校验成功");
+        return ServerResponse.createBySuccessMessage("校验成功");
     }
 
     @Override
@@ -134,7 +134,7 @@ public class UserServiceImpl implements IUserService {
             String md5Password = MD5Util.MD5EncodeUtf8(passwordNew);
             int rowCount = userMapper.updatePasswordByUsername(username, md5Password);
             if (rowCount > 0) {
-                return ServerResponse.createBySucessMessage("修改密码成功");
+                return ServerResponse.createBySuccessMessage("修改密码成功");
             }
 
         } else {
@@ -153,7 +153,7 @@ public class UserServiceImpl implements IUserService {
 
         int updateCount = userMapper.updateByPrimaryKeySelective(user);
         if (updateCount > 0) {
-            return ServerResponse.createBySucessMessage("修改成功");
+            return ServerResponse.createBySuccessMessage("修改成功");
         }
         return ServerResponse.createByErrorMessage("更新失败");
     }
@@ -173,7 +173,7 @@ public class UserServiceImpl implements IUserService {
 
         int updateCount = userMapper.updateByPrimaryKeySelective(updateUser);
         if (updateCount > 0) {
-            return ServerResponse.createBySucess("更新用户信息成功", updateUser);
+            return ServerResponse.createBySuccess("更新用户信息成功", updateUser);
         }
         return ServerResponse.createByErrorMessage("更新用户信息失败");
 
