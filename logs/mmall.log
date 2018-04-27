@@ -1,735 +1,95 @@
-[15:06:01.703][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-3] ==>  Preparing: SELECT COUNT(1) FROM mmall_user WHERE username = ? 
-[15:06:01.806][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-3] ==> Parameters: admin(String)
-[15:06:02.332][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-3] <==      Total: 1
-[15:06:02.518][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-3] ==>  Preparing: SELECT id, username, password, email, phone, question, answer, role, create_time, update_time FROM mmall_user WHERE username = ? and password = ? 
-[15:06:02.518][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-3] ==> Parameters: admin(String), 427338237BD929443EC5D48E24FD2B1A(String)
-[15:06:02.573][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-3] <==      Total: 1
-[15:06:08.212][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-6] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:7499da84-808e-446d-9ddb-14887744af97.jpg
-[15:06:08.453][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-6] 开始连接ftp服务器
-[15:06:09.495][ERROR][com.mmall.util.FTPUtil][http-apr-8080-exec-6] 连接FTP服务器异常
-java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[na:1.8.0_144]
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_144]
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_144]
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_144]
-	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_144]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:171) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:192) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:285) ~[commons-net-3.1.jar:3.1]
-	at com.mmall.util.FTPUtil.connectServer(FTPUtil.java:65) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:35) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:27) [classes/:na]
-	at com.mmall.service.impl.FileServiceImpl.upload(FileServiceImpl.java:44) [classes/:na]
-	at com.mmall.controller.backend.ProductManageController.upload(ProductManageController.java:132) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_144]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_144]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_144]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_144]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:214) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:748) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:689) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:83) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:945) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:876) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:931) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:833) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:650) [servlet-api.jar:na]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:807) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731) [servlet-api.jar:na]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat7-websocket.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:108) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110) [catalina.jar:7.0.82]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116) [catalina.jar:7.0.82]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:445) [catalina.jar:7.0.82]
-	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1115) [tomcat-coyote.jar:7.0.82]
-	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2555) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2544) [tomcat-coyote.jar:7.0.82]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-coyote.jar:7.0.82]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
-[15:06:09.497][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-6] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:06:35.888][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-10] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:c7b9dc6b-a03a-4004-ae8b-1a12ab3e2436.jpg
-[15:06:35.898][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-10] 开始连接ftp服务器
-[15:06:36.041][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-10] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:06:52.666][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-2] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:7b609a69-24c4-4006-ba32-89f39ab889ce.jpg
-[15:06:52.687][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-2] 开始连接ftp服务器
-[15:06:52.733][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-2] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:07:41.990][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-4] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:47d6d70b-5c3e-40fd-9a25-c2887c4db81f.jpg
-[15:07:42.006][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-4] 开始连接ftp服务器
-[15:07:42.030][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-4] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:08:27.280][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-7] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:72cb60e8-6367-4d31-8cc8-95fd2fc06cb9.jpg
-[15:08:27.315][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-7] 开始连接ftp服务器
-[15:08:27.329][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-7] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:09:44.652][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-9] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:b623e062-e25c-4c6a-aa0e-7bf372d8c7be.jpg
-[15:09:44.666][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-9] 开始连接ftp服务器
-[15:09:44.685][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-9] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:13:56.994][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-3] ==>  Preparing: SELECT COUNT(1) FROM mmall_user WHERE username = ? 
-[15:13:57.036][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-3] ==> Parameters: admin(String)
-[15:13:57.167][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-3] <==      Total: 1
-[15:13:57.237][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-3] ==>  Preparing: SELECT id, username, password, email, phone, question, answer, role, create_time, update_time FROM mmall_user WHERE username = ? and password = ? 
-[15:13:57.237][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-3] ==> Parameters: admin(String), 427338237BD929443EC5D48E24FD2B1A(String)
-[15:13:57.243][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-3] <==      Total: 1
-[15:14:02.819][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-6] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:d4a019c0-6737-4e8e-bdea-94fc9d692dcd.jpg
-[15:14:02.868][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-6] 开始连接ftp服务器
-[15:14:02.930][ERROR][com.mmall.util.FTPUtil][http-apr-8080-exec-6] 连接FTP服务器异常
-java.net.UnknownHostException: ftp://localhost/: invalid IPv6 address
-	at java.net.InetAddress.getAllByName(InetAddress.java:1169) ~[na:1.8.0_144]
-	at java.net.InetAddress.getAllByName(InetAddress.java:1126) ~[na:1.8.0_144]
-	at java.net.InetAddress.getByName(InetAddress.java:1076) ~[na:1.8.0_144]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:192) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:285) ~[commons-net-3.1.jar:3.1]
-	at com.mmall.util.FTPUtil.connectServer(FTPUtil.java:73) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:42) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:32) [classes/:na]
-	at com.mmall.service.impl.FileServiceImpl.upload(FileServiceImpl.java:44) [classes/:na]
-	at com.mmall.controller.backend.ProductManageController.upload(ProductManageController.java:132) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_144]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_144]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_144]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_144]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:214) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:748) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:689) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:83) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:945) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:876) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:931) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:833) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:650) [servlet-api.jar:na]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:807) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731) [servlet-api.jar:na]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat7-websocket.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:108) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110) [catalina.jar:7.0.82]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116) [catalina.jar:7.0.82]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:445) [catalina.jar:7.0.82]
-	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1115) [tomcat-coyote.jar:7.0.82]
-	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2555) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2544) [tomcat-coyote.jar:7.0.82]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-coyote.jar:7.0.82]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
-[15:14:02.935][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-6] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:16:07.876][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-10] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:50627cfe-1640-4320-9273-f6881a937119.jpg
-[15:16:07.907][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-10] 开始连接ftp服务器
-[15:16:07.907][ERROR][com.mmall.util.FTPUtil][http-apr-8080-exec-10] 连接FTP服务器异常
-java.net.UnknownHostException: ftp://localhost/: invalid IPv6 address
-	at java.net.InetAddress.getAllByName(InetAddress.java:1169) ~[na:1.8.0_144]
-	at java.net.InetAddress.getAllByName(InetAddress.java:1126) ~[na:1.8.0_144]
-	at java.net.InetAddress.getByName(InetAddress.java:1076) ~[na:1.8.0_144]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:192) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:285) ~[commons-net-3.1.jar:3.1]
-	at com.mmall.util.FTPUtil.connectServer(FTPUtil.java:73) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:42) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:32) [classes/:na]
-	at com.mmall.service.impl.FileServiceImpl.upload(FileServiceImpl.java:44) [classes/:na]
-	at com.mmall.controller.backend.ProductManageController.upload(ProductManageController.java:132) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_144]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_144]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_144]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_144]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:214) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:748) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:689) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:83) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:945) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:876) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:931) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:833) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:650) [servlet-api.jar:na]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:807) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731) [servlet-api.jar:na]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat7-websocket.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:108) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110) [catalina.jar:7.0.82]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116) [catalina.jar:7.0.82]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:445) [catalina.jar:7.0.82]
-	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1115) [tomcat-coyote.jar:7.0.82]
-	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2555) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2544) [tomcat-coyote.jar:7.0.82]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-coyote.jar:7.0.82]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
-[15:16:07.913][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-10] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:17:42.354][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-2] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:8f525290-31d2-466d-becc-b4e592321055.jpg
-[15:17:42.363][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-2] 开始连接ftp服务器
-[15:17:42.366][ERROR][com.mmall.util.FTPUtil][http-apr-8080-exec-2] 连接FTP服务器异常
-java.net.UnknownHostException: ftp://localhost/: invalid IPv6 address
-	at java.net.InetAddress.getAllByName(InetAddress.java:1169) ~[na:1.8.0_144]
-	at java.net.InetAddress.getAllByName(InetAddress.java:1126) ~[na:1.8.0_144]
-	at java.net.InetAddress.getByName(InetAddress.java:1076) ~[na:1.8.0_144]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:192) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:285) ~[commons-net-3.1.jar:3.1]
-	at com.mmall.util.FTPUtil.connectServer(FTPUtil.java:73) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:42) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:32) [classes/:na]
-	at com.mmall.service.impl.FileServiceImpl.upload(FileServiceImpl.java:44) [classes/:na]
-	at com.mmall.controller.backend.ProductManageController.upload(ProductManageController.java:132) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_144]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_144]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_144]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_144]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:214) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:748) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:689) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:83) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:945) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:876) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:931) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:833) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:650) [servlet-api.jar:na]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:807) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731) [servlet-api.jar:na]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat7-websocket.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:108) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110) [catalina.jar:7.0.82]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116) [catalina.jar:7.0.82]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:445) [catalina.jar:7.0.82]
-	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1115) [tomcat-coyote.jar:7.0.82]
-	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2555) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2544) [tomcat-coyote.jar:7.0.82]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-coyote.jar:7.0.82]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
-[15:17:42.368][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-2] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:17:58.876][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-5] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:cf417973-b6c0-4b8b-a142-58fe0e1a7015.jpg
-[15:17:58.901][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-5] 开始连接ftp服务器
-[15:17:58.903][ERROR][com.mmall.util.FTPUtil][http-apr-8080-exec-5] 连接FTP服务器异常
-java.net.UnknownHostException: ftp://localhost/: invalid IPv6 address
-	at java.net.InetAddress.getAllByName(InetAddress.java:1169) ~[na:1.8.0_144]
-	at java.net.InetAddress.getAllByName(InetAddress.java:1126) ~[na:1.8.0_144]
-	at java.net.InetAddress.getByName(InetAddress.java:1076) ~[na:1.8.0_144]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:192) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:285) ~[commons-net-3.1.jar:3.1]
-	at com.mmall.util.FTPUtil.connectServer(FTPUtil.java:73) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:42) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:32) [classes/:na]
-	at com.mmall.service.impl.FileServiceImpl.upload(FileServiceImpl.java:44) [classes/:na]
-	at com.mmall.controller.backend.ProductManageController.upload(ProductManageController.java:132) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_144]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_144]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_144]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_144]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:214) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:748) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:689) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:83) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:945) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:876) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:931) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:833) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:650) [servlet-api.jar:na]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:807) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731) [servlet-api.jar:na]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat7-websocket.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:108) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110) [catalina.jar:7.0.82]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116) [catalina.jar:7.0.82]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:445) [catalina.jar:7.0.82]
-	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1115) [tomcat-coyote.jar:7.0.82]
-	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2555) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2544) [tomcat-coyote.jar:7.0.82]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-coyote.jar:7.0.82]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
-[15:17:58.904][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-5] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:21:10.179][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-3] ==>  Preparing: SELECT COUNT(1) FROM mmall_user WHERE username = ? 
-[15:21:10.215][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-3] ==> Parameters: admin(String)
-[15:21:10.294][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-3] <==      Total: 1
-[15:21:10.363][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-3] ==>  Preparing: SELECT id, username, password, email, phone, question, answer, role, create_time, update_time FROM mmall_user WHERE username = ? and password = ? 
-[15:21:10.364][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-3] ==> Parameters: admin(String), 427338237BD929443EC5D48E24FD2B1A(String)
-[15:21:10.368][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-3] <==      Total: 1
-[15:21:20.391][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-8] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:28ddb9bb-d59a-4c7f-9ab0-8fb84b672b9d.jpg
-[15:21:20.429][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-8] 开始连接ftp服务器
-[15:21:20.513][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-8] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:23:29.500][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-9] ==>  Preparing: SELECT COUNT(1) FROM mmall_user WHERE username = ? 
-[15:23:29.553][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-9] ==> Parameters: admin(String)
-[15:23:29.831][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-9] <==      Total: 1
-[15:23:29.854][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-9] ==>  Preparing: SELECT id, username, password, email, phone, question, answer, role, create_time, update_time FROM mmall_user WHERE username = ? and password = ? 
-[15:23:29.855][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-9] ==> Parameters: admin(String), 427338237BD929443EC5D48E24FD2B1A(String)
-[15:23:29.860][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-9] <==      Total: 1
-[15:23:34.637][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-3] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:e38672c9-f9bd-4b67-a52d-ac5d78343461.jpg
-[15:23:34.699][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-3] 开始连接ftp服务器
-[15:23:55.746][ERROR][com.mmall.util.FTPUtil][http-apr-8080-exec-3] 连接FTP服务器异常
-java.net.ConnectException: Connection timed out: connect
-	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[na:1.8.0_144]
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_144]
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_144]
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_144]
-	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_144]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:171) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:192) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:285) ~[commons-net-3.1.jar:3.1]
-	at com.mmall.util.FTPUtil.connectServer(FTPUtil.java:73) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:42) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:32) [classes/:na]
-	at com.mmall.service.impl.FileServiceImpl.upload(FileServiceImpl.java:47) [classes/:na]
-	at com.mmall.controller.backend.ProductManageController.upload(ProductManageController.java:129) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_144]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_144]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_144]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_144]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:214) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:748) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:689) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:83) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:945) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:876) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:931) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:833) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:650) [servlet-api.jar:na]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:807) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731) [servlet-api.jar:na]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat7-websocket.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:108) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110) [catalina.jar:7.0.82]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116) [catalina.jar:7.0.82]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:445) [catalina.jar:7.0.82]
-	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1115) [tomcat-coyote.jar:7.0.82]
-	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2555) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2544) [tomcat-coyote.jar:7.0.82]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-coyote.jar:7.0.82]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
-[15:23:55.751][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-3] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:24:37.388][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-7] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:17e2784d-2e56-4280-bc95-76ca7f216015.jpg
-[15:24:37.420][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-7] 开始连接ftp服务器
-[15:24:58.424][ERROR][com.mmall.util.FTPUtil][http-apr-8080-exec-7] 连接FTP服务器异常
-java.net.ConnectException: Connection timed out: connect
-	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[na:1.8.0_144]
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_144]
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_144]
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_144]
-	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_144]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:171) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:192) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:285) ~[commons-net-3.1.jar:3.1]
-	at com.mmall.util.FTPUtil.connectServer(FTPUtil.java:73) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:42) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:32) [classes/:na]
-	at com.mmall.service.impl.FileServiceImpl.upload(FileServiceImpl.java:47) [classes/:na]
-	at com.mmall.controller.backend.ProductManageController.upload(ProductManageController.java:129) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_144]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_144]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_144]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_144]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:214) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:748) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:689) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:83) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:945) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:876) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:931) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:833) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:650) [servlet-api.jar:na]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:807) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731) [servlet-api.jar:na]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat7-websocket.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:108) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110) [catalina.jar:7.0.82]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116) [catalina.jar:7.0.82]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:445) [catalina.jar:7.0.82]
-	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1115) [tomcat-coyote.jar:7.0.82]
-	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2555) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2544) [tomcat-coyote.jar:7.0.82]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-coyote.jar:7.0.82]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
-[15:24:58.427][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-7] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:26:56.141][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-1] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:ee3473ac-9b85-41c3-819f-b43efd255e76.jpg
-[15:26:56.166][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-1] 开始连接ftp服务器
-[15:27:17.214][ERROR][com.mmall.util.FTPUtil][http-apr-8080-exec-1] 连接FTP服务器异常
-java.net.ConnectException: Connection timed out: connect
-	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[na:1.8.0_144]
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_144]
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_144]
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_144]
-	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_144]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:171) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:192) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:285) ~[commons-net-3.1.jar:3.1]
-	at com.mmall.util.FTPUtil.connectServer(FTPUtil.java:73) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:42) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:32) [classes/:na]
-	at com.mmall.service.impl.FileServiceImpl.upload(FileServiceImpl.java:47) [classes/:na]
-	at com.mmall.controller.backend.ProductManageController.upload(ProductManageController.java:129) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_144]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_144]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_144]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_144]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:214) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:748) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:689) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:83) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:945) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:876) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:931) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:833) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:650) [servlet-api.jar:na]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:807) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731) [servlet-api.jar:na]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat7-websocket.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:108) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110) [catalina.jar:7.0.82]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116) [catalina.jar:7.0.82]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:445) [catalina.jar:7.0.82]
-	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1115) [tomcat-coyote.jar:7.0.82]
-	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2555) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2544) [tomcat-coyote.jar:7.0.82]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-coyote.jar:7.0.82]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
-[15:27:17.216][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-1] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:28:25.239][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-9] ==>  Preparing: SELECT COUNT(1) FROM mmall_user WHERE username = ? 
-[15:28:25.287][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-9] ==> Parameters: admin(String)
-[15:28:25.314][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-9] <==      Total: 1
-[15:28:25.336][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-9] ==>  Preparing: SELECT id, username, password, email, phone, question, answer, role, create_time, update_time FROM mmall_user WHERE username = ? and password = ? 
-[15:28:25.337][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-9] ==> Parameters: admin(String), 427338237BD929443EC5D48E24FD2B1A(String)
-[15:28:25.341][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-9] <==      Total: 1
-[15:28:33.269][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-1] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:77a6ff4f-89fc-464b-9267-03f97d0f473d.jpg
-[15:28:33.310][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-1] 开始连接ftp服务器
-[15:28:33.354][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-1] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:33:04.322][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-7] 开始上传文件,上传文件的文件名:v2-b2e324b54fa67345d293427485edfd37_hd.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:18523676-b5c7-435a-8a8f-56032f6e01aa.jpg
-[15:33:04.398][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-7] 开始连接ftp服务器
-[15:33:05.431][ERROR][com.mmall.util.FTPUtil][http-apr-8080-exec-7] 连接FTP服务器异常
-java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[na:1.8.0_144]
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_144]
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_144]
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_144]
-	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_144]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:171) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:192) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:285) ~[commons-net-3.1.jar:3.1]
-	at com.mmall.util.FTPUtil.connectServer(FTPUtil.java:73) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:42) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:32) [classes/:na]
-	at com.mmall.service.impl.FileServiceImpl.upload(FileServiceImpl.java:47) [classes/:na]
-	at com.mmall.controller.backend.ProductManageController.upload(ProductManageController.java:129) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_144]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_144]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_144]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_144]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:214) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:748) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:689) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:83) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:945) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:876) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:931) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:833) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:650) [servlet-api.jar:na]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:807) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731) [servlet-api.jar:na]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat7-websocket.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:108) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110) [catalina.jar:7.0.82]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116) [catalina.jar:7.0.82]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:445) [catalina.jar:7.0.82]
-	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1115) [tomcat-coyote.jar:7.0.82]
-	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2555) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2544) [tomcat-coyote.jar:7.0.82]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-coyote.jar:7.0.82]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
-[15:33:05.437][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-7] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:33:17.328][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-1] 开始上传文件,上传文件的文件名:v2-b2e324b54fa67345d293427485edfd37_hd.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:63f85b6d-c5c8-4c87-bb5e-253c4fa05a31.jpg
-[15:33:17.412][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-1] 开始连接ftp服务器
-[15:33:18.417][ERROR][com.mmall.util.FTPUtil][http-apr-8080-exec-1] 连接FTP服务器异常
-java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[na:1.8.0_144]
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_144]
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_144]
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_144]
-	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_144]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:171) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:192) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:285) ~[commons-net-3.1.jar:3.1]
-	at com.mmall.util.FTPUtil.connectServer(FTPUtil.java:73) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:42) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:32) [classes/:na]
-	at com.mmall.service.impl.FileServiceImpl.upload(FileServiceImpl.java:47) [classes/:na]
-	at com.mmall.controller.backend.ProductManageController.upload(ProductManageController.java:129) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_144]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_144]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_144]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_144]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:214) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:748) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:689) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:83) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:945) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:876) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:931) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:833) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:650) [servlet-api.jar:na]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:807) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731) [servlet-api.jar:na]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat7-websocket.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:108) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110) [catalina.jar:7.0.82]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116) [catalina.jar:7.0.82]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:445) [catalina.jar:7.0.82]
-	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1115) [tomcat-coyote.jar:7.0.82]
-	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2555) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2544) [tomcat-coyote.jar:7.0.82]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-coyote.jar:7.0.82]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
-[15:33:18.418][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-1] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:35:08.726][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-5] 开始上传文件,上传文件的文件名:v2-b2e324b54fa67345d293427485edfd37_hd.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:adf16aee-44b2-468b-aa24-048d003de09f.jpg
-[15:35:08.740][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-5] 开始连接ftp服务器
-[15:35:09.748][ERROR][com.mmall.util.FTPUtil][http-apr-8080-exec-5] 连接FTP服务器异常
-java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[na:1.8.0_144]
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_144]
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_144]
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_144]
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_144]
-	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_144]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:171) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:192) ~[commons-net-3.1.jar:3.1]
-	at org.apache.commons.net.SocketClient.connect(SocketClient.java:285) ~[commons-net-3.1.jar:3.1]
-	at com.mmall.util.FTPUtil.connectServer(FTPUtil.java:73) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:42) [classes/:na]
-	at com.mmall.util.FTPUtil.uploadFile(FTPUtil.java:32) [classes/:na]
-	at com.mmall.service.impl.FileServiceImpl.upload(FileServiceImpl.java:47) [classes/:na]
-	at com.mmall.controller.backend.ProductManageController.richtextImgUpload(ProductManageController.java:158) [classes/:na]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_144]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_144]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_144]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_144]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:214) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:132) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:748) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:689) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:83) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:945) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:876) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:931) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:833) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:650) [servlet-api.jar:na]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:807) [spring-webmvc-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731) [servlet-api.jar:na]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) [tomcat7-websocket.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:108) [spring-web-4.0.0.RELEASE.jar:4.0.0.RELEASE]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:219) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:110) [catalina.jar:7.0.82]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103) [catalina.jar:7.0.82]
-	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:962) [catalina.jar:7.0.82]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116) [catalina.jar:7.0.82]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:445) [catalina.jar:7.0.82]
-	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1115) [tomcat-coyote.jar:7.0.82]
-	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.doRun(AprEndpoint.java:2555) [tomcat-coyote.jar:7.0.82]
-	at org.apache.tomcat.util.net.AprEndpoint$SocketProcessor.run(AprEndpoint.java:2544) [tomcat-coyote.jar:7.0.82]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_144]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_144]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-coyote.jar:7.0.82]
-	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_144]
-[15:35:09.752][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-5] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:35:39.254][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-10] 开始上传文件,上传文件的文件名:4e490e9b033b5bb50b7ef9233fd3d539b400bcc4.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:dda64ee8-6c2c-494b-952a-92fb821cb9a2.jpg
-[15:35:39.275][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-10] 开始连接ftp服务器
-[15:35:39.292][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-10] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:36:15.169][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-5] 开始上传文件,上传文件的文件名:v2-b2e324b54fa67345d293427485edfd37_hd.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:c45b6944-8a57-409a-beb8-52920b3b5887.jpg
-[15:36:15.205][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-5] 开始连接ftp服务器
-[15:36:15.245][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-5] 开始连接ftp服务器,结束上传,上传结果:{}
-[15:40:39.241][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-10] ==>  Preparing: SELECT COUNT(1) FROM mmall_user WHERE username = ? 
-[15:40:39.343][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-10] ==> Parameters: admin(String)
-[15:40:39.385][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-10] <==      Total: 1
-[15:40:39.465][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-10] ==>  Preparing: SELECT id, username, password, email, phone, question, answer, role, create_time, update_time FROM mmall_user WHERE username = ? and password = ? 
-[15:40:39.465][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-10] ==> Parameters: admin(String), 427338237BD929443EC5D48E24FD2B1A(String)
-[15:40:39.470][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-10] <==      Total: 1
-[15:40:46.360][INFO][com.mmall.service.impl.FileServiceImpl][http-apr-8080-exec-5] 开始上传文件,上传文件的文件名:v2-b2e324b54fa67345d293427485edfd37_hd.jpg,上传的路径:F:\IDEA-workspace\target\mmall\upload,新文件名:6325e295-aeec-495c-811c-c7f392881463.jpg
-[15:40:46.443][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-5] 开始连接ftp服务器
-[15:40:46.518][INFO][com.mmall.util.FTPUtil][http-apr-8080-exec-5] 开始连接ftp服务器,结束上传,上传结果:{}
+[09:22:35.628][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-9] ==>  Preparing: SELECT COUNT(1) FROM mmall_user WHERE username = ? 
+[09:22:36.092][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-9] ==> Parameters: admin(String)
+[09:22:36.814][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-9] <==      Total: 1
+[09:22:37.521][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-9] ==>  Preparing: SELECT id, username, password, email, phone, question, answer, role, create_time, update_time FROM mmall_user WHERE username = ? and password = ? 
+[09:22:37.522][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-9] ==> Parameters: admin(String), 427338237BD929443EC5D48E24FD2B1A(String)
+[09:22:38.092][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-9] <==      Total: 1
+[09:22:44.441][DEBUG][c.m.dao.ProductMapper.selectList_COUNT][http-apr-8080-exec-1] ==>  Preparing: SELECT count(*) FROM mmall_product 
+[09:22:44.444][DEBUG][c.m.dao.ProductMapper.selectList_COUNT][http-apr-8080-exec-1] ==> Parameters: 
+[09:22:45.128][DEBUG][c.m.dao.ProductMapper.selectList_COUNT][http-apr-8080-exec-1] <==      Total: 1
+[09:22:45.129][DEBUG][com.mmall.dao.ProductMapper.selectList][http-apr-8080-exec-1] ==>  Preparing: SELECT id, category_id, name, subtitle, main_image, sub_images, detail, price, stock, status, create_time, update_time FROM mmall_product ORDER BY id ASC limit ?,? 
+[09:22:45.129][DEBUG][com.mmall.dao.ProductMapper.selectList][http-apr-8080-exec-1] ==> Parameters: 0(Integer), 10(Integer)
+[09:22:45.177][DEBUG][com.mmall.dao.ProductMapper.selectList][http-apr-8080-exec-1] <==      Total: 4
+[09:23:06.793][DEBUG][c.m.dao.ProductMapper.selectList_COUNT][http-apr-8080-exec-4] ==>  Preparing: SELECT count(*) FROM mmall_product 
+[09:23:06.793][DEBUG][c.m.dao.ProductMapper.selectList_COUNT][http-apr-8080-exec-4] ==> Parameters: 
+[09:23:06.795][DEBUG][c.m.dao.ProductMapper.selectList_COUNT][http-apr-8080-exec-4] <==      Total: 1
+[09:23:06.795][DEBUG][com.mmall.dao.ProductMapper.selectList][http-apr-8080-exec-4] ==>  Preparing: SELECT id, category_id, name, subtitle, main_image, sub_images, detail, price, stock, status, create_time, update_time FROM mmall_product ORDER BY id ASC limit ?,? 
+[09:23:06.796][DEBUG][com.mmall.dao.ProductMapper.selectList][http-apr-8080-exec-4] ==> Parameters: 0(Integer), 2(Integer)
+[09:23:06.799][DEBUG][com.mmall.dao.ProductMapper.selectList][http-apr-8080-exec-4] <==      Total: 2
+[09:23:38.433][DEBUG][c.m.dao.ProductMapper.selectList_COUNT][http-apr-8080-exec-7] ==>  Preparing: SELECT count(*) FROM mmall_product 
+[09:23:38.433][DEBUG][c.m.dao.ProductMapper.selectList_COUNT][http-apr-8080-exec-7] ==> Parameters: 
+[09:23:38.435][DEBUG][c.m.dao.ProductMapper.selectList_COUNT][http-apr-8080-exec-7] <==      Total: 1
+[09:23:38.435][DEBUG][com.mmall.dao.ProductMapper.selectList][http-apr-8080-exec-7] ==>  Preparing: SELECT id, category_id, name, subtitle, main_image, sub_images, detail, price, stock, status, create_time, update_time FROM mmall_product ORDER BY id ASC limit ?,? 
+[09:23:38.436][DEBUG][com.mmall.dao.ProductMapper.selectList][http-apr-8080-exec-7] ==> Parameters: 2(Integer), 2(Integer)
+[09:23:38.439][DEBUG][com.mmall.dao.ProductMapper.selectList][http-apr-8080-exec-7] <==      Total: 2
+[09:24:28.882][DEBUG][c.m.d.P.selectByNameAndProductId_COUNT][http-apr-8080-exec-10] ==>  Preparing: SELECT count(*) FROM mmall_product WHERE name LIKE ? 
+[09:24:28.882][DEBUG][c.m.d.P.selectByNameAndProductId_COUNT][http-apr-8080-exec-10] ==> Parameters: %p%(String)
+[09:24:28.954][DEBUG][c.m.d.P.selectByNameAndProductId_COUNT][http-apr-8080-exec-10] <==      Total: 1
+[09:24:28.957][DEBUG][c.m.d.P.selectByNameAndProductId][http-apr-8080-exec-10] ==>  Preparing: SELECT id, category_id, name, subtitle, main_image, sub_images, detail, price, stock, status, create_time, update_time FROM mmall_product WHERE name LIKE ? limit ?,? 
+[09:24:28.957][DEBUG][c.m.d.P.selectByNameAndProductId][http-apr-8080-exec-10] ==> Parameters: %p%(String), 0(Integer), 10(Integer)
+[09:24:28.965][DEBUG][c.m.d.P.selectByNameAndProductId][http-apr-8080-exec-10] <==      Total: 2
+[09:24:51.006][DEBUG][c.m.d.P.selectByNameAndProductId_COUNT][http-apr-8080-exec-2] ==>  Preparing: SELECT count(*) FROM mmall_product WHERE id = ? 
+[09:24:51.006][DEBUG][c.m.d.P.selectByNameAndProductId_COUNT][http-apr-8080-exec-2] ==> Parameters: 1(Integer)
+[09:24:51.050][DEBUG][c.m.d.P.selectByNameAndProductId_COUNT][http-apr-8080-exec-2] <==      Total: 1
+[09:25:14.301][DEBUG][c.m.d.P.selectByNameAndProductId_COUNT][http-apr-8080-exec-5] ==>  Preparing: SELECT count(*) FROM mmall_product WHERE id = ? 
+[09:25:14.301][DEBUG][c.m.d.P.selectByNameAndProductId_COUNT][http-apr-8080-exec-5] ==> Parameters: 100002(Integer)
+[09:25:14.303][DEBUG][c.m.d.P.selectByNameAndProductId_COUNT][http-apr-8080-exec-5] <==      Total: 1
+[09:25:36.536][DEBUG][c.m.d.P.selectByNameAndProductId_COUNT][http-apr-8080-exec-8] ==>  Preparing: SELECT count(*) FROM mmall_product WHERE id = ? 
+[09:25:36.539][DEBUG][c.m.d.P.selectByNameAndProductId_COUNT][http-apr-8080-exec-8] ==> Parameters: 26(Integer)
+[09:25:36.569][DEBUG][c.m.d.P.selectByNameAndProductId_COUNT][http-apr-8080-exec-8] <==      Total: 1
+[09:25:36.571][DEBUG][c.m.d.P.selectByNameAndProductId][http-apr-8080-exec-8] ==>  Preparing: SELECT id, category_id, name, subtitle, main_image, sub_images, detail, price, stock, status, create_time, update_time FROM mmall_product WHERE id = ? limit ?,? 
+[09:25:36.572][DEBUG][c.m.d.P.selectByNameAndProductId][http-apr-8080-exec-8] ==> Parameters: 26(Integer), 0(Integer), 10(Integer)
+[09:25:36.575][DEBUG][c.m.d.P.selectByNameAndProductId][http-apr-8080-exec-8] <==      Total: 1
+[09:29:17.175][DEBUG][c.m.dao.ProductMapper.selectByPrimaryKey][http-apr-8080-exec-4] ==>  Preparing: select id, category_id, name, subtitle, main_image, sub_images, detail, price, stock, status, create_time, update_time from mmall_product where id = ? 
+[09:29:17.176][DEBUG][c.m.dao.ProductMapper.selectByPrimaryKey][http-apr-8080-exec-4] ==> Parameters: 26(Integer)
+[09:29:17.179][DEBUG][c.m.dao.ProductMapper.selectByPrimaryKey][http-apr-8080-exec-4] <==      Total: 1
+[09:29:17.195][DEBUG][c.m.d.CategoryMapper.selectByPrimaryKey][http-apr-8080-exec-4] ==>  Preparing: select id, parent_id, name, status, sort_order, create_time, update_time from mmall_category where id = ? 
+[09:29:17.197][DEBUG][c.m.d.CategoryMapper.selectByPrimaryKey][http-apr-8080-exec-4] ==> Parameters: 100002(Integer)
+[09:29:17.350][DEBUG][c.m.d.CategoryMapper.selectByPrimaryKey][http-apr-8080-exec-4] <==      Total: 1
+[09:29:59.370][DEBUG][c.m.d.P.updateByPrimaryKeySelective][http-apr-8080-exec-7] ==>  Preparing: update mmall_product SET status = ? where id = ? 
+[09:29:59.371][DEBUG][c.m.d.P.updateByPrimaryKeySelective][http-apr-8080-exec-7] ==> Parameters: 1(Integer), 26(Integer)
+[09:30:00.030][DEBUG][c.m.d.P.updateByPrimaryKeySelective][http-apr-8080-exec-7] <==    Updates: 1
+[09:30:35.736][DEBUG][com.mmall.dao.ProductMapper.insert][http-apr-8080-exec-9] ==>  Preparing: insert into mmall_product (id, category_id, name, subtitle, main_image, sub_images, detail, price, stock, status, create_time, update_time ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now() ) 
+[09:30:35.738][DEBUG][com.mmall.dao.ProductMapper.insert][http-apr-8080-exec-9] ==> Parameters: null, 1(Integer), ä¸ææ´è¡£æº(String), ä¸æå¤§ä¿é(String), null, null, null, null, null, null
+[09:33:49.843][DEBUG][c.m.dao.ProductMapper.updateByPrimaryKey][http-apr-8080-exec-2] ==>  Preparing: update mmall_product set category_id = ?, name = ?, subtitle = ?, main_image = ?, sub_images = ?, detail = ?, price = ?, stock = ?, status = ?, create_time = ?, update_time = now() where id = ? 
+[09:33:49.844][DEBUG][c.m.dao.ProductMapper.updateByPrimaryKey][http-apr-8080-exec-2] ==> Parameters: 1(Integer), 三星洗衣机(String), 三星大促销(String), test.jpg(String), test.jpg(String), detailtext(String), 1000(BigDecimal), 100(Integer), 1(Integer), null, 3(Integer)
+[09:33:49.913][DEBUG][c.m.dao.ProductMapper.updateByPrimaryKey][http-apr-8080-exec-2] <==    Updates: 0
+[09:35:27.059][DEBUG][com.mmall.dao.ProductMapper.insert][http-apr-8080-exec-5] ==>  Preparing: insert into mmall_product (id, category_id, name, subtitle, main_image, sub_images, detail, price, stock, status, create_time, update_time ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now() ) 
+[09:35:27.062][DEBUG][com.mmall.dao.ProductMapper.insert][http-apr-8080-exec-5] ==> Parameters: null, 1(Integer), 三星洗衣机(String), 三星大促销(String), test.jpg(String), test.jpg(String), detailtext(String), 1000(BigDecimal), 100(Integer), 1(Integer)
+[09:35:27.177][DEBUG][com.mmall.dao.ProductMapper.insert][http-apr-8080-exec-5] <==    Updates: 1
+[09:35:34.359][DEBUG][c.m.dao.ProductMapper.updateByPrimaryKey][http-apr-8080-exec-8] ==>  Preparing: update mmall_product set category_id = ?, name = ?, subtitle = ?, main_image = ?, sub_images = ?, detail = ?, price = ?, stock = ?, status = ?, create_time = ?, update_time = now() where id = ? 
+[09:35:34.361][DEBUG][c.m.dao.ProductMapper.updateByPrimaryKey][http-apr-8080-exec-8] ==> Parameters: 1(Integer), 三星洗衣机(String), 三星大促销(String), test.jpg(String), test.jpg(String), detailtext(String), 1000(BigDecimal), 100(Integer), 0(Integer), null, 3(Integer)
+[09:35:34.364][DEBUG][c.m.dao.ProductMapper.updateByPrimaryKey][http-apr-8080-exec-8] <==    Updates: 0
+[09:36:03.768][DEBUG][c.m.dao.ProductMapper.updateByPrimaryKey][http-apr-8080-exec-1] ==>  Preparing: update mmall_product set category_id = ?, name = ?, subtitle = ?, main_image = ?, sub_images = ?, detail = ?, price = ?, stock = ?, status = ?, create_time = ?, update_time = now() where id = ? 
+[09:36:03.770][DEBUG][c.m.dao.ProductMapper.updateByPrimaryKey][http-apr-8080-exec-1] ==> Parameters: 1(Integer), 三星洗衣机(String), 三星大促销(String), test.jpg(String), test.jpg(String), detailtext(String), 1000(BigDecimal), 100(Integer), 0(Integer), null, 30(Integer)
+[09:36:03.903][DEBUG][c.m.dao.ProductMapper.updateByPrimaryKey][http-apr-8080-exec-1] <==    Updates: 1
+[09:38:53.288][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-10] ==>  Preparing: SELECT COUNT(1) FROM mmall_user WHERE username = ? 
+[09:38:53.345][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-10] ==> Parameters: admin(String)
+[09:38:53.467][DEBUG][com.mmall.dao.UserMapper.checkUsername][http-apr-8080-exec-10] <==      Total: 1
+[09:38:53.529][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-10] ==>  Preparing: SELECT id, username, password, email, phone, question, answer, role, create_time, update_time FROM mmall_user WHERE username = ? and password = ? 
+[09:38:53.529][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-10] ==> Parameters: admin(String), 427338237BD929443EC5D48E24FD2B1A(String)
+[09:38:53.533][DEBUG][com.mmall.dao.UserMapper.selectLogin][http-apr-8080-exec-10] <==      Total: 1
+[09:39:50.129][DEBUG][c.m.d.P.selectByNameAndCategoryIds_COUNT][http-apr-8080-exec-9] ==>  Preparing: SELECT count(*) FROM mmall_product WHERE status = 1 AND name LIKE ? 
+[09:39:50.130][DEBUG][c.m.d.P.selectByNameAndCategoryIds_COUNT][http-apr-8080-exec-9] ==> Parameters: %三%(String)
+[09:39:50.149][DEBUG][c.m.d.P.selectByNameAndCategoryIds_COUNT][http-apr-8080-exec-9] <==      Total: 1
+[09:40:02.607][DEBUG][c.m.d.P.selectByNameAndCategoryIds_COUNT][http-apr-8080-exec-2] ==>  Preparing: SELECT count(*) FROM mmall_product WHERE status = 1 AND name LIKE ? 
+[09:40:02.607][DEBUG][c.m.d.P.selectByNameAndCategoryIds_COUNT][http-apr-8080-exec-2] ==> Parameters: %三%(String)
+[09:40:02.610][DEBUG][c.m.d.P.selectByNameAndCategoryIds_COUNT][http-apr-8080-exec-2] <==      Total: 1
+[09:40:20.813][DEBUG][c.m.dao.ProductMapper.selectByPrimaryKey][http-apr-8080-exec-7] ==>  Preparing: select id, category_id, name, subtitle, main_image, sub_images, detail, price, stock, status, create_time, update_time from mmall_product where id = ? 
+[09:40:20.813][DEBUG][c.m.dao.ProductMapper.selectByPrimaryKey][http-apr-8080-exec-7] ==> Parameters: 2(Integer)
+[09:40:20.814][DEBUG][c.m.dao.ProductMapper.selectByPrimaryKey][http-apr-8080-exec-7] <==      Total: 0
+[09:40:58.320][DEBUG][c.m.dao.ProductMapper.selectByPrimaryKey][http-apr-8080-exec-9] ==>  Preparing: select id, category_id, name, subtitle, main_image, sub_images, detail, price, stock, status, create_time, update_time from mmall_product where id = ? 
+[09:40:58.320][DEBUG][c.m.dao.ProductMapper.selectByPrimaryKey][http-apr-8080-exec-9] ==> Parameters: 30(Integer)
+[09:40:58.329][DEBUG][c.m.dao.ProductMapper.selectByPrimaryKey][http-apr-8080-exec-9] <==      Total: 1
+[09:42:42.522][DEBUG][c.m.dao.ProductMapper.selectByPrimaryKey][http-apr-8080-exec-3] ==>  Preparing: select id, category_id, name, subtitle, main_image, sub_images, detail, price, stock, status, create_time, update_time from mmall_product where id = ? 
+[09:42:42.523][DEBUG][c.m.dao.ProductMapper.selectByPrimaryKey][http-apr-8080-exec-3] ==> Parameters: 30(Integer)
+[09:42:42.526][DEBUG][c.m.dao.ProductMapper.selectByPrimaryKey][http-apr-8080-exec-3] <==      Total: 1
+[09:42:42.529][DEBUG][c.m.d.CategoryMapper.selectByPrimaryKey][http-apr-8080-exec-3] ==>  Preparing: select id, parent_id, name, status, sort_order, create_time, update_time from mmall_category where id = ? 
+[09:42:42.530][DEBUG][c.m.d.CategoryMapper.selectByPrimaryKey][http-apr-8080-exec-3] ==> Parameters: 1(Integer)
+[09:42:42.625][DEBUG][c.m.d.CategoryMapper.selectByPrimaryKey][http-apr-8080-exec-3] <==      Total: 0
+[09:44:54.697][DEBUG][c.m.d.P.selectByNameAndCategoryIds_COUNT][http-apr-8080-exec-1] ==>  Preparing: SELECT count(*) FROM mmall_product WHERE status = 1 AND name LIKE ? 
+[09:44:54.698][DEBUG][c.m.d.P.selectByNameAndCategoryIds_COUNT][http-apr-8080-exec-1] ==> Parameters: %A%(String)
+[09:44:54.700][DEBUG][c.m.d.P.selectByNameAndCategoryIds_COUNT][http-apr-8080-exec-1] <==      Total: 1
+[09:44:54.728][DEBUG][c.m.d.P.selectByNameAndCategoryIds][http-apr-8080-exec-1] ==>  Preparing: SELECT id, category_id, name, subtitle, main_image, sub_images, detail, price, stock, status, create_time, update_time FROM mmall_product WHERE status = 1 AND name LIKE ? order by price desc limit ?,? 
+[09:44:54.729][DEBUG][c.m.d.P.selectByNameAndCategoryIds][http-apr-8080-exec-1] ==> Parameters: %A%(String), 0(Integer), 10(Integer)
+[09:44:54.748][DEBUG][c.m.d.P.selectByNameAndCategoryIds][http-apr-8080-exec-1] <==      Total: 4
