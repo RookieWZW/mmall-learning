@@ -53,14 +53,14 @@ public class ProductServiceImpl implements IProductService {
             if (product.getId() != null) {
                 int rowCount = productMapper.updateByPrimaryKey(product);
                 if (rowCount > 0) {
-                    return ServerResponse.createBySucessMessage("更新产品成功");
+                    return ServerResponse.createBySuccessMessage("更新产品成功");
                 }
                 return ServerResponse.createByErrorMessage("更新产品失败");
             } else {
 
                 int rowCount = productMapper.insert(product);
                 if (rowCount > 0) {
-                    return ServerResponse.createBySucessMessage("新增产品成功");
+                    return ServerResponse.createBySuccessMessage("新增产品成功");
                 }
                 return ServerResponse.createByErrorMessage("新增产品失败");
             }
@@ -79,7 +79,7 @@ public class ProductServiceImpl implements IProductService {
         product.setStatus(status);
         int rowCount = productMapper.updateByPrimaryKeySelective(product);
         if (rowCount > 0) {
-            return ServerResponse.createBySucessMessage("修改产品销售状态成功");
+            return ServerResponse.createBySuccessMessage("修改产品销售状态成功");
         }
         return ServerResponse.createByErrorMessage("修改产品销售状态失败");
     }
