@@ -60,6 +60,9 @@ public class ShippingServiceImpl implements IShippingService{
         return ServerResponse.createBySuccess("更新地址成功",shipping);
     }
 
+
+
+
     public ServerResponse<PageInfo> list(Integer userId,int pageNum,int pageSize){
         PageHelper.startPage(pageNum,pageSize);
         List<Shipping> shippingList = shippingMapper.selectByUserId(userId);
