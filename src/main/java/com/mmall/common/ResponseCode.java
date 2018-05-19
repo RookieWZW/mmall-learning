@@ -1,7 +1,9 @@
 package com.mmall.common;
 
 /**
- * Created by RookieWangZhiWei on 2018/4/22.
+ *
+ * @author RookieWangZhiWei
+ * @date 2018/4/22
  */
 
 public enum ResponseCode {
