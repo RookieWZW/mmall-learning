@@ -6,7 +6,9 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 import java.io.Serializable;
 
 /**
- * Created by RookieWangZhiWei on 2018/4/22.
+ *
+ * @author RookieWangZhiWei
+ * @date 2018/4/22
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 public class ServerResponse<T> implements Serializable {
